@@ -1,18 +1,40 @@
-class Cupcake:
-    def __init__(self, name, cake_flavor, filling, frosting_flavor, toppings):
-        self.name = name
-        self.cake_flavor = cake_flavor
-        self.filling = filling
-        self.frosting_flavor = frosting_flavor
-        self.toppings = toppings
-        self.sprinkles = []
+from abc import ABC, abstractmethod
 
+class Cupcake(ABC):
+    size = "regular"
+    def __init__(self, name, price, cake, filling, frosting):
+        self.name = name
+        self.price = price
+        self.cake = cake
+        self.filling = filling
+        self.frosting = frosting
+        self.sprinkles = []
+ 
     def add_sprinkles(self, *args):
         for sprinkle in args:
             self.sprinkles.append(sprinkle)
 
-double_chocolate = Cupcake("Double Chocolate", "chocolate", False, "chocolate", False)
+    @abstractmethod 
+    def calculate_price(self, quantity):
+        return quantity * self.price
 
-double_chocolate.add_sprinkles("chocolate")
+class Mini(Cupcake):
+    specialty = "mini"
+    def __init__(self, name, price, cake, frosting):
+        self.name = name
+        self.price = price
+        self.cake = cake
+        self.frosting = frosting
+        self.sprinkles = []
 
-print(double_chocolate.cake_flavor)
+class GlutenFree(Cupcake):
+    specialty = "gluten free"
+
+
+
+
+
+# ////////////////////////////////////////////////
+
+my_cupcake = Mini("strawberry_vanilla", 2, "vanilla", "strawberry")
+print(my_cupcake.price, my_cupcake.cake)
