@@ -1,6 +1,5 @@
-size,name,price,flavor,frosting,sprinkles,filling
-regular,Stars and Stripes,2.99,Vanilla,Vanilla,"['Red', 'White', 'Blue', 'Chocolate']",Chocolate
-mini,Oreo,0.99,Chocolate,Cookies and Cream,['Oreo pieces'],
-large,Red Velvet,3.99,Red Velvet,Cream Cheese,[],
-regular,Triple Chocolate,2.99,Chocolate,Chocolate,[],Chocolate
-regular,Strawberry,2.99,Stawberry,Vanilla,[],
+type,name,cake,price,filling,frosting,sprinkles
+mini,Cinnamon Sugar,vanilla,0.99,,cinnamon-sugar,[]
+mega,Lemon,vanilla,2.99,True,lemon,['lemon heads']
+mega,Red Velvet,red velvet,2.99,True,cream cheese,[]
+gluten free,Chocolate,chocolate,2.99,False,chocolate,['chocolate shavings']
