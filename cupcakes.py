@@ -70,7 +70,7 @@ def read_csv(file):
         for row in reader:
             pprint(row)
 
-read_csv("sample.csv")
+# read_csv("sample.csv")
 
 def write_csv(file, cupcake_list):
     with open(file, "w", newline="\n") as csvfile:
@@ -86,3 +86,18 @@ def write_csv(file, cupcake_list):
                 writer.writerow({"type": cupcake.type, "name": cupcake.name, "cake": cupcake.cake, "price": cupcake.price, "frosting": cupcake.frosting, "sprinkles": cupcake.sprinkles})
 
 # write_csv("sample.csv", cupcake_list)
+
+def append_csv(file, cupcake):
+    with open(file, "a", newline="\n") as csvfile:
+        fieldnames= ["type", "name", "cake", "price", "filling", "frosting", "sprinkles"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        if hasattr(cupcake, "filling"):
+            writer.writerow({"type": cupcake.type, "name": cupcake.name, "cake": cupcake.cake, "price": cupcake.price, "filling": cupcake.filling, "frosting": cupcake.frosting, "sprinkles": cupcake.sprinkles})
+        else:
+            writer.writerow({"type": cupcake.type, "name": cupcake.name, "cake": cupcake.cake, "price": cupcake.price, "frosting": cupcake.frosting, "sprinkles": cupcake.sprinkles})
+
+cupcake5 = Mega("Strawberry", 2.99, "vanilla", True, "Strawberry")
+cupcake5.add_sprinkles("sliced strawberry")
+
+append_csv("sample.csv", cupcake5)
