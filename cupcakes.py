@@ -70,7 +70,7 @@ def read_csv(file):
         for row in reader:
             pprint(row)
 
-# read_csv("sample.csv")
+read_csv("sample.csv")
 
 def write_csv(file, cupcake_list):
     with open(file, "w", newline="\n") as csvfile:
@@ -100,4 +100,4 @@ def append_csv(file, cupcake):
 cupcake5 = Mega("Strawberry", 2.99, "vanilla", True, "Strawberry")
 cupcake5.add_sprinkles("sliced strawberry")
 
-append_csv("sample.csv", cupcake5)
+# append_csv("sample.csv", cupcake5)
