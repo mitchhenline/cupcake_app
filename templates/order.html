@@ -10,15 +10,16 @@
 <body>
     <h1 id="mainheader">Cupcake Corner</h1>
     <h2 id="subheader">Your Order</h2>
-    <p></p>
-    {% for cupcake in cupcakes %}
-        <h2 id="cupcakename">{{ cupcake["name"].title() }}</h2>
+    <a href="/">
+        <button>Back to menu</button>
+    </a>
+
+    {% for cupcake in orders %}
+        <h2 id="name_of_cupcake">{{ cupcake["name"].title() }}</h2>
         <p class="text"><b>Cake Flavor:</b> {{ cupcake["cake"].title() }}</p>
         <p class="text"><b>Frosting:</b> {{ cupcake["frosting"].title() }}</p>
         <p class="text"><b>Price:</b> ${{ cupcake["price"] }}</p>
-        <a href="{{ url_for('add_cupcake', name=cupcake['name']) }}">
-            <button>Add to Cart</button>
-        </a>
     {% endfor %}
+    
 </body>
 </html>

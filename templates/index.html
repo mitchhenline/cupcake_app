@@ -9,7 +9,10 @@
 </head>
 <body>
     <h1 id="mainheader">Cupcake Corner</h1>
-    <p></p>
+    <h2 id="subheader">Main Menu</h2>
+    <a href="/order">
+        <button>View Order</button>
+    </a>
     {% for cupcake in cupcakes %}
         <h2 id="name_of_cupcake">{{ cupcake["name"].title() }}</h2>
         <p class="text"><b>Cake Flavor:</b> {{ cupcake["cake"].title() }}</p>

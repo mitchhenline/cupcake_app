@@ -72,7 +72,7 @@ def read_csv(file):
         for row in reader:
             pprint(row)
 
-read_csv("sample.csv")
+# read_csv("sample.csv")
 
 
 #-----------------------TAKES LIST OF CUPCAKES AND WRITES//OVERWRITES CURRENT LIST OF CUPCAKES IN CSVFILE
@@ -112,7 +112,7 @@ cupcake5.add_sprinkles("sliced strawberry")
 
 
 
-def get_cupcakes(file):
+def return_csv_list(file):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
         reader = list(reader)
@@ -121,7 +121,7 @@ def get_cupcakes(file):
 #---------------Adding cupcakes to orders-------------
 
 def find_cupcakes(file, name):
-    for cupcake in get_cupcakes(file):
+    for cupcake in return_csv_list(file):
         if cupcake["name"] == name:
             return cupcake
     return None

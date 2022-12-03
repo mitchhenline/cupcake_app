@@ -1,15 +1,15 @@
 from flask import Flask, render_template, url_for, redirect
-from cupcakes import get_cupcakes, find_cupcakes, add_cupcake_dictionary
+from cupcakes import return_csv_list, find_cupcakes, add_cupcake_dictionary
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html", cupcakes = get_cupcakes("cupcakedisplay.csv"))
+    return render_template("index.html", cupcakes = return_csv_list("cupcakedisplay.csv"))
 
 @app.route("/order")
 def order():
-    return render_template("order.html")
+    return render_template("order.html", orders = return_csv_list("orders.csv"))
 
 @app.route("/cupcakes")
 def cupcakes():
