@@ -9,11 +9,15 @@
 </head>
 <body>
     <h1 id="mainheader">Cupcake Corner</h1>
+    <p></p>
     {% for cupcake in cupcakes %}
-        <h2 id="cupcakename">{{ cupcake["name"] }}</h2>
-        <p class="text">Cake Flavor: {{ cupcake["cake"] }}</p>
-        <p class="text">Frosting: {{ cupcake["frosting"] }}</p>
-        <p class="text">Price: ${{ cupcake["price"] }}</p>
+        <h2 id="name_of_cupcake">{{ cupcake["name"].title() }}</h2>
+        <p class="text"><b>Cake Flavor:</b> {{ cupcake["cake"].title() }}</p>
+        <p class="text"><b>Frosting:</b> {{ cupcake["frosting"].title() }}</p>
+        <p class="text"><b>Price:</b> ${{ cupcake["price"] }}</p>
+        <a href="{{ url_for('add_cupcake', name=cupcake['name']) }}">
+            <button>Add to Cart</button>
+        </a>
     {% endfor %}
 </body>
 </html>

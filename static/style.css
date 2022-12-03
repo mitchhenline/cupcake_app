@@ -5,14 +5,25 @@ body {
 }
 
 .text {
+    color: white;
+    font-size: 16px;
 }
 
 #mainheader {
-    text-shadow: rgb(16, 16, 98) 1px 0 10px;
+    text-shadow: rgb(10, 10, 57) 1px 0 10px;
+    font-size: 60px;
+    margin-top: 60px;
     
 }
 
-#cupcakename {
+#subheader {
+        text-shadow: rgb(10, 10, 57) 1px 0 10px;
+        font-size: 30px;
+        
+}
+
+#name_of_cupcake{
+    text-shadow: rgb(16, 16, 98) 1px 0 10px;
     border: 2px solid black;
     margin-left: 20%;
     margin-right: 20%;
