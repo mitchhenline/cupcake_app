@@ -63,6 +63,8 @@ cupcake_list = [
 
 # ////////////////////////////////////////////////
 
+#-----------------------------------PRINTS LIST OF CUPCAKES INTO TERMINAL
+
 def read_csv(file):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
@@ -71,6 +73,9 @@ def read_csv(file):
             pprint(row)
 
 read_csv("sample.csv")
+
+
+#-----------------------TAKES LIST OF CUPCAKES AND WRITES//OVERWRITES CURRENT LIST OF CUPCAKES IN CSVFILE
 
 def write_csv(file, cupcake_list):
     with open(file, "w", newline="\n") as csvfile:
@@ -87,6 +92,9 @@ def write_csv(file, cupcake_list):
 
 # write_csv("sample.csv", cupcake_list)
 
+
+#------------------------------APPENDS INDIVIDUAL CUPCAKE TO CUPCAKE LIST
+
 def append_csv(file, cupcake):
     with open(file, "a", newline="\n") as csvfile:
         fieldnames= ["type", "name", "cake", "price", "filling", "frosting", "sprinkles"]
@@ -101,3 +109,25 @@ cupcake5 = Mega("Strawberry", 2.99, "vanilla", True, "Strawberry")
 cupcake5.add_sprinkles("sliced strawberry")
 
 # append_csv("sample.csv", cupcake5)
+
+
+
+def get_cupcakes(file):
+    with open(file) as csvfile:
+        reader = csv.DictReader(csvfile)
+        reader = list(reader)
+        return reader
+
+#---------------Adding cupcakes to orders-------------
+
+def find_cupcakes(file, name):
+    for cupcake in get_cupcakes(file):
+        if cupcake["name"] == name:
+            return cupcake
+    return None
+
+def add_cupcake_dictionary(file, cupcake):
+    with open(file, "a", newline="\n") as csvfile:
+        fieldnames= ["type", "name", "cake", "price", "filling", "frosting", "sprinkles"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writerow(cupcake)

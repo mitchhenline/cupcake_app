@@ -1,0 +1,7 @@
+type,name,cake,price,filling,frosting,sprinkles
+mini,Cinnamon Sugar,vanilla,0.99,,cinnamon-sugar,[]
+mega,Lemon,vanilla,2.99,True,lemon,['lemon heads']
+mega,Red Velvet,red velvet,2.99,True,cream cheese,[]
+gluten free,Chocolate,chocolate,2.99,False,chocolate,['chocolate shavings']
+mega,Strawberry,vanilla,2.99,True,Strawberry,[]
+mega,Strawberry,vanilla,2.99,True,Strawberry,['sliced strawberry']

@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect
+from cupcakes import get_cupcakes, find_cupcakes, add_cupcake_dictionary
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", cupcakes = get_cupcakes("cupcakedisplay.csv"))
 
 @app.route("/order")
 def order():
@@ -12,11 +13,21 @@ def order():
 
 @app.route("/cupcakes")
 def cupcakes():
-    return render_template("cupcakes.html")
+    return render_template("cupcake.html")
 
 @app.route("/individual_cupcake")
 def individual_cupcake():
     return render_template("individual_cupcake.html")
+
+@app.route('/add-cupcake/<name>')
+def add_cupcake(name):
+    cupcake = find_cupcakes("cupcakedisplay.csv", name)
+
+    if cupcake:
+        add_cupcake_dictionary("orders.csv", cupcake)
+        return redirect(url_for("home"))
+    else:
+        return "Cupcake not found."
 
 if __name__ == "__main__":
     app.env = "development"
