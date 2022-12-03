@@ -10,8 +10,9 @@
 <body>
     <h1 id="mainheader">Cupcake Corner</h1>
     <h2 id="subheader">Main Menu</h2>
-    <a href="/order">
-        <button>View Order</button>
+    <a href="/order"><button>View Order</button></a>
+    <a href="/secret"><button>How They Are Made</button></a>
+        
     </a>
     {% for cupcake in cupcakes %}
         <h2 id="name_of_cupcake">{{ cupcake["name"].title() }}</h2>
@@ -22,5 +23,7 @@
             <button>Add to Cart</button>
         </a>
     {% endfor %}
+
+    
 </body>
 </html>

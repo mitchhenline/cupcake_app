@@ -19,6 +19,9 @@
         <p class="text"><b>Cake Flavor:</b> {{ cupcake["cake"].title() }}</p>
         <p class="text"><b>Frosting:</b> {{ cupcake["frosting"].title() }}</p>
         <p class="text"><b>Price:</b> ${{ cupcake["price"] }}</p>
+        <a href="{{ url_for('delete_order', index=loop.index - 1) }}">
+            <button>Remove</button>
+        </a>
     {% endfor %}
     
 </body>
